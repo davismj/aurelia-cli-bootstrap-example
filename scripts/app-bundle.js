@@ -12,9 +12,10 @@ define('app',["exports", "bootstrap"], function (exports) {
     }
   }
 
-  var App = exports.App = function App() {
+  var App = exports.App = function App(element) {
     _classCallCheck(this, App);
 
+    this.element = element;
     this.items = [{
       title: "Charmander",
       text: "Obviously prefers hot places. When it rains, steam is said to spout from the tip of its tail."
@@ -85,5 +86,5 @@ define('resources/index',["exports"], function (exports) {
   exports.configure = configure;
   function configure(config) {}
 });
-define('text!app.html', ['module'], function(module) { module.exports = "<template><require from=\"bootstrap/css/bootstrap.css\"></require><div class=\"container\"><h1>Pokémon</h1><div class=\"panel-group\" id=\"accordion\" role=\"tablist\" aria-multiselectable=\"true\" repeat.for=\"item of items\"><div class=\"panel panel-default\"><div class=\"panel-heading\" role=\"tab\" id=\"heading-${$index}\"><h4 class=\"panel-title\"><a role=\"button\" data-toggle=\"collapse\" data-parent=\"#accordion\" href=\"#collapse-${$index}\" aria-expanded=\"true\" aria-controls=\"collapse-${$index}\">${item.title}</a></h4></div><div id=\"collapse-${$index}\" class=\"panel-collapse collapse ${$first && 'in'}\" role=\"tabpanel\" aria-labelledby=\"heading-${index}\"><div class=\"panel-body\">${item.text}</div></div></div></div></div></template>"; });
+define('text!app.html', ['module'], function(module) { module.exports = "<template><require from=\"bootstrap/css/bootstrap.css\"></require><div class=\"container\"><h1>Pokémon</h1><div class=\"panel-group\" id=\"accordion\" role=\"tablist\" aria-multiselectable=\"true\"><div class=\"panel panel-default\" repeat.for=\"item of items\"><div class=\"panel-heading\" role=\"tab\" id=\"heading-${$index}\"><h4 class=\"panel-title\"><a role=\"button\" data-toggle=\"collapse\" data-parent=\"#accordion\" href=\"#collapse-${$index}\" aria-expanded=\"true\" aria-controls=\"collapse-${$index}\">${item.title}</a></h4></div><div id=\"collapse-${$index}\" class=\"panel-collapse collapse ${$first && 'in'}\" role=\"tabpanel\" aria-labelledby=\"heading-${index}\"><div class=\"panel-body\">${item.text}</div></div></div></div></div></template>"; });
 //# sourceMappingURL=app-bundle.js.map
